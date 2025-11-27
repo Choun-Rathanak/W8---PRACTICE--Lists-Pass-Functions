@@ -1,72 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:w8_practice_list_pass_fuction/EXERCISE-4/database/jokes.dart';
+import '../ui/screens/welcome_screen.dart';
 
 Color appColor = Colors.green[300] as Color;
 
-void main() => runApp(MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: appColor,
-          title: const Text("Favorite Jokes"),
-        ),
-        body: const Column(
-          children: [FavoriteCard(), FavoriteCard(), FavoriteCard()],
-        ),
-      ),
-    ));
+void main() => runApp(const MyApp());
 
-class FavoriteCard extends StatefulWidget {
-  const FavoriteCard({
-    super.key,
-  });
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  @override
-  State<FavoriteCard> createState() => _FavoriteCardState();
-}
-
-class _FavoriteCardState extends State<FavoriteCard> {
-  bool _isFavorite = false;
-
-  void onFavoriteClick() {
-    setState(() {
-      _isFavorite = !_isFavorite;
-    });
-  }
- 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: .5, color: Colors.grey),
-        ),
+    return const MaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int? favoriteJokeId;
+
+  void handleFavoriteTap(int id) {
+    setState(() {
+      favoriteJokeId = id;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: appColor,
+        title: const Text("Favorite Jokes"),
       ),
-      padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-           Expanded(
-            flex: 7,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'title',
-                  style: TextStyle(
-                      color: appColor, fontWeight: FontWeight.w800),
-                ),
-                const SizedBox(height: 10.0),
-                const Text('description')
-              ],
-            ),
-          ),
-          IconButton(
-              onPressed: onFavoriteClick,
-              icon: Icon(
-                _isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: _isFavorite ? Colors.red : Colors.grey,
-              ))
-        ],
+      body: WelcomeScreen(
+        favoriteJokeId: favoriteJokeId,
+        onFavoriteTap: handleFavoriteTap,
       ),
     );
   }

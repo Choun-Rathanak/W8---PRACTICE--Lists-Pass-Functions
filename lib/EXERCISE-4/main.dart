@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../EXERCISE-4/database/jokes.dart';
-import '../../EXERCISE-4/ui/screens/welcome_screen.dart';
+import 'database/jokes.dart';
+import '../ui/screens/welcome_screen.dart';
 
 Color appColor = Colors.green[300] as Color;
 
