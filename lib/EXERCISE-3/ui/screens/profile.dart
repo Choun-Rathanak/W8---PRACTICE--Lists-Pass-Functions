@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:w8_practice_list_pass_fuction/EXERCISE-3/model/profile_tile_model.dart';
 import '../theme/theme.dart';
-import '../../data/profile_data.dart';
+
 
 
 class ProfileApp extends StatelessWidget {

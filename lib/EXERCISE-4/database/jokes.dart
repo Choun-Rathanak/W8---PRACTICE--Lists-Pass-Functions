@@ -15,6 +15,6 @@ List<Joke> jokes = List.generate(
   (i) => Joke(
     id: i,
     title: "Joke #${i + 1}",
-    description: "This is joke number ${i + 1}. 😂",
+    description: "I love Joke from ${i + 1}.",
   ),
 );

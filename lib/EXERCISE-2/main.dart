@@ -36,7 +36,7 @@ class _TemperatureAppState extends State<TemperatureApp> {
           ),
           child: isWelcomePage
               ? WelcomeScreen(onStart: changeScreen)
-              : TemperatureScreen(),
+              : TemperatureScreen()
         ),
       ),
     );

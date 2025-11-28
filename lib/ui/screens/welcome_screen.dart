@@ -13,7 +13,7 @@ class WelcomeScreen extends StatelessWidget {
     super.key,
     required this.favoriteJokeId,
     required this.onFavoriteTap,
-  });
+  }); 
 
   @override
   Widget build(BuildContext context) {
